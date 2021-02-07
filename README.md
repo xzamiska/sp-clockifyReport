@@ -1,11 +1,12 @@
 # sp-clockifyReport
 
 Steps:
-1. Generate datailed CSV monthly report on clockify.
-2. Set fields in conf.json file
-3. run `npm i` command
-4. run `node .` command
-5. Your report is generated in output folder
+1. Generate datailed CSV monthly report on clockify
+2. Copy this file in to root directory of app. (Only one csv file should be there!)
+3. Set fields in conf.json file
+4. Run `npm i` command
+5. Run `node .` command
+6. Your report is generated in output folder
 
 
 # conf.json
