@@ -1,5 +1,7 @@
 # sp-clockifyReport
 
+Node.js is required!!!
+
 Steps:
 1. Generate datailed CSV monthly report on clockify
 2. Copy this file in to root directory of app. (Only one csv file should be there!)

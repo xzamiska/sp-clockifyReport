@@ -8,11 +8,11 @@ const getData = async () => {
 
     data = data.map(d => {
         return {
-            date: stringToDate(d[conf.date || 'Start Date'], conf.input_date_format),
-            task: d[conf.task || 'Tags'],
-            description: d[conf.description || 'Description'],
-            start_time: timeFormat(d[conf.start_time || 'Start Time']),
-            end_time: timeFormat(d[conf.end_time || 'End Time'])
+            date: stringToDate(d[conf.column.date || 'Start Date'], conf.input_date_format),
+            task: d[conf.column.task || 'Tags'],
+            description: d[conf.column.description || 'Description'],
+            start_time: timeFormat(d[conf.column.start_time || 'Start Time']),
+            end_time: timeFormat(d[conf.column.end_time || 'End Time'])
         }
     }).sort((a, b) => {
         let compareDate = a.date - b.date;
