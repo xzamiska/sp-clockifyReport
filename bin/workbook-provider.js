@@ -36,7 +36,7 @@ const getWorkbook = async () => {
         { key: 'description', width: 37, style: { alignment: { wrapText: true } } },
         { key: 'start_time', width: 9, style: { numFmt: 'h:mm' } },
         { key: 'end_time', width: 8, style: { numFmt: 'h:mm' } },
-        { key: 'duration', width: 10, style: { numFmt: 'h:mm' } },
+        { key: 'duration', width: 10, style: { numFmt: '[h]:mm:ss' } },
     ];
 
     worksheet.getRow(table_start_row).font = { bold: true };
