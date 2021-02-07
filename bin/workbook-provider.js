@@ -19,7 +19,6 @@ const getWorkbook = async () => {
     worksheet.getCell('C2').value = 'Príloha k fa. č. ';
     worksheet.getCell('C2').alignment = { horizontal: 'right'};
     worksheet.getCell('D2').value = confData.invoice_number;
-    worksheet.getCell('D2').alignment = { horizontal: 'right'};
 
     worksheet.getRow(table_start_row).values = [
         'Dátum',
@@ -31,12 +30,12 @@ const getWorkbook = async () => {
     ];
 
     worksheet.columns = [
-        { key: 'date', width: 11, style: { numFmt: confData.output_date_format || 'dd/mm/yyyy'} },
+        { key: 'date', width: 11.5, style: { numFmt: confData.output_date_format || 'dd/mm/yyyy'} },
         { key: 'task', width: 14 },
         { key: 'description', width: 37, style: { alignment: { wrapText: true } } },
         { key: 'start_time', width: 9, style: { numFmt: 'h:mm' } },
         { key: 'end_time', width: 8, style: { numFmt: 'h:mm' } },
-        { key: 'duration', width: 10, style: { numFmt: '[h]:mm:ss' } },
+        { key: 'duration', width: 10, style: { numFmt: 'h:mm' } },
     ];
 
     worksheet.getRow(table_start_row).font = { bold: true };
@@ -70,6 +69,7 @@ const getWorkbook = async () => {
     worksheet.getCell(`C${resultRowNumber}`).value = 'Hodiny celkom:';
     worksheet.getCell(`F${resultRowNumber}`).value = { formula: `=SUM(F${table_start_row+1}:F${resultRowNumber-3})`};
     worksheet.getCell(`F${resultRowNumber}`).font = { bold: true};
+    worksheet.getCell(`F${resultRowNumber}`).numFmt = '[h]:mm:ss';
     return workbook;
 }
 
