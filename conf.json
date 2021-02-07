@@ -1,0 +1,15 @@
+{
+    "name": "",
+    "project": "",
+    "invoice_number": "",
+    "column": {
+        "date": "Start Date",
+        "task": "Tags",
+        "description": "Description",
+        "start_time": "Start Time",
+        "end_time": "End Time"
+    },
+    "input_date_format": "dd/mm/yyyy",
+    "output_date_format": "",
+    "output_file_name": ""
+}
