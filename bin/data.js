@@ -63,6 +63,8 @@ const toDate = (time) => {
     now.setHours(time.substr(0, time.indexOf(":")));
     now.setMinutes(time.substr(time.indexOf(":") + 1));
     now.setSeconds(0);
+    //timezone quick fix - investigation needed
+    now.setHours(now.getHours() + 1);
     return now;
 }
 
