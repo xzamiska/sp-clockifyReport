@@ -1,5 +1,6 @@
 const fs = require('fs');
 const csv = require('csvtojson');
+const moment = require('moment');
 
 const getData = async () => {
 
@@ -58,14 +59,14 @@ const timeFormat = (time) => {
     return toDate(time);
 }
 
-const toDate = (time) => {
-    let now = new Date();
-    now.setHours(time.substr(0, time.indexOf(":")));
-    now.setMinutes(time.substr(time.indexOf(":") + 1));
-    now.setSeconds(0);
-    //timezone quick fix - investigation needed
-    now.setHours(now.getHours() + 1);
-    return now;
+const toDate = (timeString) => {
+    let value = moment();
+    value.set('hour', timeString.substr(0, timeString.indexOf(":")));
+    value.set('minute', timeString.substr(timeString.indexOf(":") + 1));
+    value.set('second', 0);
+    const offset = value.utcOffset();
+    value.add(offset, 'minutes');
+    return value.toDate();
 }
 
 const stringToDate = (_date, _format) => {
